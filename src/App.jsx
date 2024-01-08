@@ -46,7 +46,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setArtistName(data.artists.items[0].name);
         setArtistGenre(data.artists.items[0].genres[0]);
         return data.artists.items[0].id;
@@ -69,7 +68,7 @@ function App() {
             placeholder="Pesquise um artista"
             type="input"
             onKeyPress={(e) => {
-              if (e.key == "Enter") {
+              if (e.key === "Enter") {
                 search();
               }
             }}
@@ -99,6 +98,8 @@ function App() {
                     <a
                       className="text-decoration-none text-reset"
                       href={album.external_urls.spotify}
+                      rel="noreferrer"
+                      target="_blank"
                     >
                       {album.name}
                     </a>
